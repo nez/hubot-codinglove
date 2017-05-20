@@ -25,17 +25,8 @@ cheerio = require('cheerio')
 he = require('he')
 
 module.exports = (robot)->
-  robot.respond /(donne moi de la )?joie( bordel)?/i, (message)->
-    send_new_meme message, 'http://lesjoiesducode.fr/random', (text)->
-      message.send text
-  robot.respond /derni[èe]re joie/i, (message)->
-    send_new_meme message, 'http://lesjoiesducode.fr', (text)->
-      message.send text
-  robot.respond /((give me|spread) some )?(joy|love)( asshole)?/i, (message)->
+  robot.respond /((give me|spread) some )?joy/i, (message)->
     send_meme message, 'http://thecodinglove.com/random', (text)->
-      message.send text
-  robot.respond /last (joy|love)/i, (message)->
-    send_meme message, 'http://thecodinglove.com', (text)->
       message.send text
 
 send_new_meme = (message, location, response_handler)->
